@@ -19,6 +19,30 @@
   --color-primary-800: #1e40af;
   --color-primary-900: #1e3a8a;
 
+  /* Secondary (purple tones) */
+  --color-secondary-100: #f3e8ff;
+  --color-secondary-200: #e9d5ff;
+  --color-secondary-300: #d8b4fe;
+  --color-secondary-400: #c084fc;
+  --color-secondary-500: #a855f7;
+  --color-secondary-600: #9333ea;
+  --color-secondary-700: #7e22ce;
+  --color-secondary-800: #6b21a8;
+  --color-secondary-900: #581c87;
+  --color-secondary-950: #3b0764;
+
+  /* Accent (green-teal tones) */
+  --color-accent-100: #c2ffdd;
+  --color-accent-200: #adffd2;
+  --color-accent-300: #99ffc7;
+  --color-accent-400: #85ffbc;
+  --color-accent-500: #70ffb0;
+  --color-accent-600: #5ae99f;
+  --color-accent-700: #45d38e;
+  --color-accent-800: #30bd7d;
+  --color-accent-900: #1ba76c;
+  --color-accent-950: #0a915b;
+
   /* Neutral Grays */
   --color-neutral-50: #f9fafb;
   --color-neutral-100: #f3f4f6;
