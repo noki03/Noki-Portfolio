@@ -1,15 +1,43 @@
-function App() {
+// src/App.tsx
+import React from "react";
+import Navbar from "./components/Navbar";
+import Hero from "./sections/Hero";
+import About from "./sections/About";
+import Projects from "./sections/Projects";
+import Contact from "./sections/Contact";
+import Footer from "./components/Footer";
+
+const App: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white">
-      <h1 className="text-5xl font-bold mb-4">Hello Tailwind!</h1>
-      <p className="text-lg text-gray-300">
-        Tailwind CSS is now working with React + Vite + TypeScript 🎉
-      </p>
-      <button className="mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg transition-all">
-        Test Button
-      </button>
+    // Set the main app background here (e.g., bg-bg or bg-neutral-950 for pure black)
+    <div className="min-h-screen flex flex-col  text-neutral-100 font-sans">
+      {/* Navbar */}
+      <Navbar />
+
+      {/* Main Content */}
+      <main className="grow ">
+        <section id="hero">
+          <Hero />
+        </section>
+
+        {/* 👇 REMOVE bg-surface/bg-bg from sections */}
+        <section id="about" className="border-t border-neutral-800">
+          <About />
+        </section>
+
+        <section id="projects" className="border-t border-neutral-800">
+          <Projects />
+        </section>
+
+        {/* <section id="contact" className="border-t border-neutral-800">
+          <Contact />
+        </section> */}
+      </main>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;
