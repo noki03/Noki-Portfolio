@@ -1,5 +1,6 @@
 // src/sections/Contact.tsx
 import React from "react";
+import FloatingDots from "../components/util/FloatingDots";
 
 const Contact: React.FC = () => {
   return (
@@ -95,8 +96,7 @@ const Contact: React.FC = () => {
       </div>
 
       {/* Floating dots */}
-      <div className="absolute top-40 left-10 w-2 h-2 bg-primary-400/30 rounded-full animate-float" />
-      <div className="absolute bottom-32 right-20 w-3 h-3 bg-primary-300/20 rounded-full animate-float delay-1000" />
+      <FloatingDots />
     </section>
   );
 };
