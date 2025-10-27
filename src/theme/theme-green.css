@@ -1,0 +1,46 @@
+@theme {
+  /* Font System */
+  --font-sans: InterVariable, ui-sans-serif, system-ui, sans-serif;
+  --font-sans--font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+
+  /* Core Colors */
+  --color-bg: #0d1712; /* dark with a green undertone */
+  --color-surface: #162419; /* slightly lighter greenish surface */
+  --color-card: #1e2d23; /* good contrast for cards */
+
+  /* Primary Accent (green) */
+  --color-primary-100: #dcfce7;
+  --color-primary-200: #bbf7d0;
+  --color-primary-300: #86efac;
+  --color-primary-400: #4ade80;
+  --color-primary-500: #22c55e;
+  --color-primary-600: #16a34a;
+  --color-primary-700: #15803d;
+  --color-primary-800: #166534;
+  --color-primary-900: #14532d;
+  --color-primary-950: #052e16;
+
+  /* Neutral Palette (green-tinted neutrals) */
+  --color-neutral-50: #f4f9f5;
+  --color-neutral-100: #e9f2ea;
+  --color-neutral-200: #d1e4d4;
+  --color-neutral-300: #a8cbb0;
+  --color-neutral-400: #7ea389;
+  --color-neutral-500: #5c7d66;
+  --color-neutral-600: #425c4b;
+  --color-neutral-700: #2e4135;
+  --color-neutral-800: #1f2c24;
+  --color-neutral-900: #141d18;
+
+  /* Utility Colors */
+  --color-accent: #06b6d4;
+  --color-success: #22c55e;
+  --color-warning: #facc15;
+  --color-danger: #ef4444;
+
+  /* Radii */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+}
