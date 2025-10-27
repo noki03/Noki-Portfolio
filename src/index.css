@@ -1,1 +1,38 @@
 @import "tailwindcss";
+
+/* Dark-modern theme for NOKI.DEV */
+
+@theme {
+  /* Font System */
+  --font-sans: InterVariable, ui-sans-serif, system-ui, sans-serif;
+  --font-sans--font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* @import "./theme/theme-green.css"; */
+/* @import "./theme/theme-blue.css"; */
+@import "./theme/theme-dark.css";
+
+/* Global Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-neutral-100);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
