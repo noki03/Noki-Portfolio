@@ -31,6 +31,18 @@
   --color-secondary-800: #155e75;
   --color-secondary-900: #164e63;
 
+  /* Accent Color (Vibrant Magenta) */
+  --color-accent-100: #ffe4f3;
+  --color-accent-200: #ffc2e8;
+  --color-accent-300: #ff8ad4;
+  --color-accent-400: #ff47bc;
+  --color-accent-500: #ff00a0; /* vibrant magenta core */
+  --color-accent-600: #e6008e;
+  --color-accent-700: #b80071;
+  --color-accent-800: #8c0058;
+  --color-accent-900: #5a0037;
+  --color-accent-950: #33001f;
+
   /* Neutral Palette */
   --color-neutral-50: #f8fafc;
   --color-neutral-100: #f1f5f9;
@@ -44,7 +56,6 @@
   --color-neutral-900: #0f172a;
 
   /* Utility Colors */
-  --color-accent: #ec4899; /* magenta glow */
   --color-success: #22c55e;
   --color-warning: #facc15;
   --color-danger: #ef4444;
