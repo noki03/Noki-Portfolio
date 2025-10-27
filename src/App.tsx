@@ -29,9 +29,9 @@ const App: React.FC = () => {
           <Projects />
         </section>
 
-        {/* <section id="contact" className="border-t border-neutral-800">
+        <section id="contact" className="border-t border-neutral-800">
           <Contact />
-        </section> */}
+        </section>
       </main>
 
       {/* Footer */}
