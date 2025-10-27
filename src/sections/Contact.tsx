@@ -8,7 +8,7 @@ const Contact: React.FC = () => {
       className="relative bg-surface text-neutral-200 py-28 px-6 md:px-12 overflow-hidden"
     >
       {/* Background elements matching Hero */}
-      <div className="absolute inset-0 bg-linear-to-br from-bg via-surface to-card" />
+      <div className="absolute inset-0 bg-linear-to-br from-card via-bg to-bg" />
       <div className="absolute top-20 right-20 w-80 h-80 bg-primary-500/10 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-20 left-20 w-64 h-64 bg-primary-400/5 rounded-full blur-3xl animate-pulse delay-1000" />
 
