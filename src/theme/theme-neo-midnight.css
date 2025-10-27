@@ -1,0 +1,57 @@
+@theme {
+  /* Font System */
+  --font-sans: InterVariable, ui-sans-serif, system-ui, sans-serif;
+  --font-sans--font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+
+  /* Core Colors */
+  --color-bg: #0a0b16; /* deep night navy */
+  --color-surface: #121426; /* slightly lighter layer */
+  --color-card: #1a1e34; /* soft indigo surface for cards */
+
+  /* Primary Accent (Electric Purple) */
+  --color-primary-100: #f5e9ff;
+  --color-primary-200: #e2c9ff;
+  --color-primary-300: #c79eff;
+  --color-primary-400: #a471ff;
+  --color-primary-500: #8b5cf6; /* main accent */
+  --color-primary-600: #6d28d9;
+  --color-primary-700: #581c87;
+  --color-primary-800: #3b0764;
+  --color-primary-900: #1e003e;
+  --color-primary-950: #110027;
+
+  /* Secondary Accent (Neon Teal) */
+  --color-secondary-100: #d3fdfd;
+  --color-secondary-200: #a8f7f6;
+  --color-secondary-300: #6ee7e6;
+  --color-secondary-400: #2dd4cf;
+  --color-secondary-500: #06b6d4; /* bright cyan core */
+  --color-secondary-600: #0891b2;
+  --color-secondary-700: #0e7490;
+  --color-secondary-800: #155e75;
+  --color-secondary-900: #164e63;
+
+  /* Neutral Palette */
+  --color-neutral-50: #f8fafc;
+  --color-neutral-100: #f1f5f9;
+  --color-neutral-200: #e2e8f0;
+  --color-neutral-300: #cbd5e1;
+  --color-neutral-400: #94a3b8;
+  --color-neutral-500: #64748b;
+  --color-neutral-600: #475569;
+  --color-neutral-700: #334155;
+  --color-neutral-800: #1e293b;
+  --color-neutral-900: #0f172a;
+
+  /* Utility Colors */
+  --color-accent: #ec4899; /* magenta glow */
+  --color-success: #22c55e;
+  --color-warning: #facc15;
+  --color-danger: #ef4444;
+
+  /* Radii */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+}

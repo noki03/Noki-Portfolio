@@ -10,7 +10,8 @@
 
 /* @import "./theme/theme-green.css"; */
 /* @import "./theme/theme-blue.css"; */
-@import "./theme/theme-dark.css";
+/* @import "./theme/theme-dark.css"; */
+@import "./theme/theme-neo-midnight.css";
 
 /* Global Styles */
 html {
