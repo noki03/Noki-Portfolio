@@ -3,14 +3,20 @@ import React from "react";
 
 const About: React.FC = () => {
   return (
-    <section className="relative bg-bg text-neutral-200 py-28 px-6 md:px-12 overflow-hidden">
+    // <section className="relative bg-bg text-neutral-200 py-28 px-6 md:px-12 overflow-hidden">
+    <section className="relative flex items-center justify-center min-h-screen px-6 overflow-hidden bg-transparent">
       {/* Background elements matching Hero */}
-      <div className="absolute inset-0 bg-linear-to-br from-bg via-surface to-card" />
+      {/* <div className="absolute inset-0 bg-linear-to-br from-bg via-surface to-card" />
       <div className="absolute top-20 right-20 w-80 h-80 bg-primary-500/10 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-20 left-20 w-64 h-64 bg-primary-400/5 rounded-full blur-3xl animate-pulse delay-1000" />
+      <div className="absolute bottom-20 left-20 w-64 h-64 bg-primary-400/5 rounded-full blur-3xl animate-pulse delay-1000" /> */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(10,19,16,0.8)_0%,rgba(10,19,16,0.4)_40%,transparent_100%)] pointer-events-none" />
 
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(74,222,128,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(74,222,128,0.02)_1px,transparent_1px)] bg-size-[64px_64px] mask-[radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
+      {/* Soft color glows */}
+      <div className="absolute bottom-20 left-20 w-96 h-96 bg-primary-500/25 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-secondary-500/25 rounded-full blur-3xl animate-pulse delay-1000" />
+
+      {/* Dual-color grid pattern, slightly more visible */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(74,222,128,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.1)_1px,transparent_1px)] bg-size-[64px_64px] mask-[radial-gradient(ellipse_90%_70%_at_50%_50%,black,transparent)] pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center z-10">
         {/* Text Content */}

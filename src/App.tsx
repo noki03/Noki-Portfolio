@@ -10,7 +10,8 @@ import Footer from "./components/Footer";
 const App: React.FC = () => {
   return (
     // Set the main app background here (e.g., bg-bg or bg-neutral-950 for pure black)
-    <div className="min-h-screen flex flex-col  text-neutral-100 font-sans">
+    // <div className="min-h-screen flex flex-col  text-neutral-100 font-sans">
+    <div className="min-h-screen flex flex-col text-neutral-100 font-sans bg-transparent">
       {/* Navbar */}
       <Navbar />
 
@@ -25,13 +26,13 @@ const App: React.FC = () => {
           <About />
         </section>
 
-        <section id="projects" className="border-t border-neutral-800">
+        {/* <section id="projects" className="border-t border-neutral-800">
           <Projects />
-        </section>
+        </section> */}
 
-        <section id="contact" className="border-t border-neutral-800">
+        {/* <section id="contact" className="border-t border-neutral-800">
           <Contact />
-        </section>
+        </section> */}
       </main>
       <div className="hidden">
         bg-primary-100 bg-primary-200 bg-primary-300 bg-primary-400
