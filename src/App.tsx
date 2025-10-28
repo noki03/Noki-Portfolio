@@ -29,11 +29,15 @@ const App: React.FC = () => {
           <Projects />
         </section>
 
-        {/* <section id="contact" className="border-t border-neutral-800">
+        <section id="contact" className="border-t border-neutral-800">
           <Contact />
-        </section> */}
+        </section>
       </main>
-
+      <div className="hidden">
+        bg-primary-100 bg-primary-200 bg-primary-300 bg-primary-400
+        bg-primary-500 bg-primary-600 bg-secondary-100 bg-secondary-200
+        bg-secondary-300 bg-secondary-400 bg-secondary-500 bg-secondary-600
+      </div>
       {/* Footer */}
       <Footer />
     </div>

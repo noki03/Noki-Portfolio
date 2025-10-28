@@ -3,40 +3,63 @@
   --font-sans: InterVariable, ui-sans-serif, system-ui, sans-serif;
   --font-sans--font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 
-  /* Core Colors */
-  --color-bg: #0d1712; /* dark with a green undertone */
-  --color-surface: #162419; /* slightly lighter greenish surface */
-  --color-card: #1e2d23; /* good contrast for cards */
+  /* Core Colors (Earthy and shadowed) */
+  --color-bg: #050a07; /* Deep forest black-green */
+  --color-surface: #0c1510; /* Faintly lighter for panels */
+  --color-card: #132019; /* Subtle contrast for cards */
 
-  /* Primary Accent (green) */
-  --color-primary-100: #dcfce7;
-  --color-primary-200: #bbf7d0;
-  --color-primary-300: #86efac;
-  --color-primary-400: #4ade80;
-  --color-primary-500: #22c55e;
-  --color-primary-600: #16a34a;
-  --color-primary-700: #15803d;
-  --color-primary-800: #166534;
-  --color-primary-900: #14532d;
-  --color-primary-950: #052e16;
+  /* Primary (Forest Green – soft, natural) */
+  --color-primary-100: #d7fbe8;
+  --color-primary-200: #b4f2cd;
+  --color-primary-300: #8be4ae;
+  --color-primary-400: #4fc38a;
+  --color-primary-500: #2a9d6a; /* Balanced green, not too bright */
+  --color-primary-600: #1f7b54;
+  --color-primary-700: #176244;
+  --color-primary-800: #104c35;
+  --color-primary-900: #0a3828;
+  --color-primary-950: #042319;
 
-  /* Neutral Palette (green-tinted neutrals) */
-  --color-neutral-50: #f4f9f5;
-  --color-neutral-100: #e9f2ea;
-  --color-neutral-200: #d1e4d4;
-  --color-neutral-300: #a8cbb0;
-  --color-neutral-400: #7ea389;
-  --color-neutral-500: #5c7d66;
-  --color-neutral-600: #425c4b;
-  --color-neutral-700: #2e4135;
-  --color-neutral-800: #1f2c24;
-  --color-neutral-900: #141d18;
+  /* Secondary (Muted Woodland Blue) */
+  --color-secondary-100: #e0f7f4;
+  --color-secondary-200: #bce8e3;
+  --color-secondary-300: #8bd1ca;
+  --color-secondary-400: #55b0aa;
+  --color-secondary-500: #368f8b; /* Deep, misty teal */
+  --color-secondary-600: #2a6f6e;
+  --color-secondary-700: #235959;
+  --color-secondary-800: #1c4444;
+  --color-secondary-900: #133131;
+  --color-secondary-950: #0a1f1f;
 
-  /* Utility Colors */
-  --color-accent: #06b6d4;
-  --color-success: #22c55e;
-  --color-warning: #facc15;
-  --color-danger: #ef4444;
+  /* Accent (Moss + Faint Glow) */
+  --color-accent-100: #e7ffe5;
+  --color-accent-200: #c5f9c1;
+  --color-accent-300: #a0ee98;
+  --color-accent-400: #78db6c;
+  --color-accent-500: #55c34b; /* Glowing moss green */
+  --color-accent-600: #3ea83a;
+  --color-accent-700: #2f8530;
+  --color-accent-800: #236126;
+  --color-accent-900: #173e1a;
+  --color-accent-950: #0b2210;
+
+  /* Neutral (Foggy woodland grays) */
+  --color-neutral-50: #f5f7f5;
+  --color-neutral-100: #e6ece8;
+  --color-neutral-200: #c9d3cb;
+  --color-neutral-300: #a5b3a8;
+  --color-neutral-400: #819386;
+  --color-neutral-500: #627366;
+  --color-neutral-600: #4a5b4f;
+  --color-neutral-700: #34423a;
+  --color-neutral-800: #212d26;
+  --color-neutral-900: #121b15;
+
+  /* Utility Colors (slightly earthy tones) */
+  --color-success: #46c57a;
+  --color-warning: #e5b94d;
+  --color-danger: #d85a4b;
 
   /* Radii */
   --radius-sm: 0.25rem;
