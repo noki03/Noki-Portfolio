@@ -6,7 +6,7 @@ const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="relative bg-surface text-neutral-200 py-28 px-6 md:px-12 overflow-hidden"
+      className="relative bg-surface text-neutral-200 py-40 px-6 md:px-12 overflow-hidden"
     >
       {/* Background elements matching Hero */}
       <div className="absolute inset-0 bg-linear-to-br from-card via-bg to-bg" />
