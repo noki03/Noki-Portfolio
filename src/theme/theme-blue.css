@@ -9,16 +9,16 @@
   --color-card: #112a38; /* subtle contrast for cards, like soft light underwater */
 
   /* Primary (aqua-teal, bioluminescent glow) */
-  --color-primary-100: #ccfbf1;
-  --color-primary-200: #99f6e4;
-  --color-primary-300: #5eead4;
-  --color-primary-400: #2dd4bf;
-  --color-primary-500: #14b8a6;
-  --color-primary-600: #0d9488;
-  --color-primary-700: #0f766e;
-  --color-primary-800: #115e59;
-  --color-primary-900: #134e4a;
-  --color-primary-950: #042f2e;
+  --color-primary-100: #ccf3ff;
+  --color-primary-200: #99e2ff;
+  --color-primary-300: #5ed2ff;
+  --color-primary-400: #2dc2f5;
+  --color-primary-500: #14a3e6; /* shifted from #14b8a6 → more blue */
+  --color-primary-600: #0d82c0;
+  --color-primary-700: #0f689d;
+  --color-primary-800: #11537e;
+  --color-primary-900: #134465;
+  --color-primary-950: #042b42;
 
   /* Secondary (blue-violet tones – coral & jellyfish hues) */
   --color-secondary-100: #e0e7ff;
