@@ -4,15 +4,20 @@ interface FloatingDotsProps {
   count?: number; // Number of dots
   areaHeight?: number; // Optional height limit for random positions
   areaWidth?: number; // Optional width limit for random positions
+  verticalMarginRatio?: number; // Percentage of height to keep as top/bottom margin
 }
 
 const FloatingDots: React.FC<FloatingDotsProps> = ({
   count = 50,
   areaHeight = 800,
   areaWidth = 1920,
+  verticalMarginRatio = 0.05, // 15% safe zone top/bottom
 }) => {
+  const topMargin = areaHeight * verticalMarginRatio;
+  const bottomLimit = areaHeight - topMargin;
+
   const dots = Array.from({ length: count }).map((_, i) => {
-    const top = Math.random() * areaHeight;
+    const top = Math.random() * (bottomLimit - topMargin) + topMargin;
     const left = Math.random() * areaWidth;
     const size = Math.random() * 20 + 2; // 2–22px
     const delay = Math.random() * 2000; // ms
