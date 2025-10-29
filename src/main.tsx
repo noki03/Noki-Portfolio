@@ -3,7 +3,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import LiquidEther from "./components/bgs/LiquidEther";
+// import LiquidEther from "./components/bgs/LiquidEther";
 
 const rootStyles = getComputedStyle(document.documentElement);
 const primary = rootStyles.getPropertyValue("--color-primary").trim();
@@ -16,9 +16,9 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <div style={{ position: "relative", width: "100%", height: "100vh" }}>
       {/* Background Layer */}
-      <div
+      {/* <div
         style={{
-          position: "absolute",
+          position: "fixed",
           inset: 0,
           zIndex: 0,
         }}
@@ -31,7 +31,7 @@ createRoot(document.getElementById("root")!).render(
           viscous={30}
           iterationsViscous={32}
           iterationsPoisson={32}
-          resolution={0.5}
+          resolution={0.35}
           isBounce={false}
           autoDemo={true}
           autoSpeed={0.5}
@@ -40,7 +40,7 @@ createRoot(document.getElementById("root")!).render(
           autoResumeDelay={3000}
           autoRampDuration={0.6}
         />
-      </div>
+      </div> */}
 
       {/* Foreground Content (Your App) */}
       <div style={{ position: "relative", zIndex: 10 }}>
