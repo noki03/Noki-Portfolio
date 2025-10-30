@@ -1,107 +1,157 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
+
+      const sections = ["hero", "about", "projects", "contact"];
+      const current = sections.find((id) => {
+        const el = document.getElementById(id);
+        if (!el) return false;
+        const rect = el.getBoundingClientRect();
+        return rect.top <= 100 && rect.bottom >= 100;
+      });
+
+      if (current) setActiveSection(current);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    window.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
+    setMenuOpen(false);
+  };
+
   const links = [
-    { name: "Home", href: "#hero" },
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", id: "hero" },
+    { name: "About", id: "about" },
+    { name: "Projects", id: "projects" },
+    { name: "Contact", id: "contact" },
   ];
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 w-full z-50 backdrop-blur-lg transition-[background-color,opacity] duration-500 ${
         isScrolled
-          ? "bg-linear-to-r from-bg/10 via-surface/20 to-card/70 backdrop-blur-xl shadow-[0_0_20px_var(--color-primary-900)]"
-          : "bg-transparent"
+          ? "bg-surface/80 shadow-md border-b border-neutral-800/50 opacity-100"
+          : "bg-surface/20 border-transparent opacity-95"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center py-4">
         {/* Logo */}
-        <h1 className="text-xl font-bold tracking-wide text-primary-400 hover:text-accent-400 transition-all duration-300">
-          BoS.<span className="text-secondary-400">DeV</span>
-        </h1>
+        <button
+          onClick={() => scrollTo("hero")}
+          className="flex items-center space-x-3 group focus:outline-none focus:ring-0"
+          // Optional accessible glow:
+          // className="flex items-center space-x-3 group focus:outline-none focus:ring-2 focus:ring-primary-500/40 focus:ring-offset-0"
+        >
+          <div className="w-9 h-9 bg-linear-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center font-bold text-white shadow-md group-hover:scale-110 transition-transform">
+            N
+          </div>
+          <h1 className="text-lg font-semibold bg-linear-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent tracking-tight">
+            Noki.Dev
+          </h1>
+        </button>
 
-        {/* Desktop Links */}
-        <ul className="hidden md:flex space-x-8 font-medium">
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center space-x-1">
           {links.map((link) => (
-            <li key={link.name}>
-              <a
-                href={link.href}
-                className="text-neutral-200 hover:text-accent-400 hover:drop-shadow-[0_0_8px_var(--color-accent-400)] transition-all duration-300"
-              >
-                {link.name}
-              </a>
-            </li>
+            <button
+              key={link.id}
+              onClick={() => scrollTo(link.id)}
+              // className={`px-4 py-2 rounded-lg transition-all duration-200 focus:outline-none focus:ring-0 ${
+              //   activeSection === link.id
+              //     ? "text-primary-400 bg-primary-500/10"
+              //     : "text-neutral-300 hover:text-white hover:bg-neutral-800/50"
+              // }`}
+              // Optional accessible glow:
+              className={`px-4 py-2 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/40 focus:ring-offset-0 ${
+                activeSection === link.id
+                  ? "text-primary-400 bg-primary-500/10"
+                  : "text-neutral-300 hover:text-white hover:bg-neutral-800/50"
+              }`}
+            >
+              {link.name}
+            </button>
           ))}
-        </ul>
+        </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-accent-400 hover:text-secondary-400 focus:outline-none transition-colors"
-          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden w-10 h-10 flex flex-col justify-center items-center relative focus:outline-none focus:ring-0"
+          onClick={() => setMenuOpen((p) => !p)}
         >
-          {menuOpen ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          )}
+          <span
+            className={`w-6 h-0.5 bg-neutral-300 transition-all duration-300 ${
+              menuOpen ? "rotate-45 translate-y-1.5" : "-translate-y-1"
+            }`}
+          />
+          <span
+            className={`w-6 h-0.5 bg-neutral-300 transition-all duration-300 ${
+              menuOpen ? "opacity-0" : "opacity-100"
+            }`}
+          />
+          <span
+            className={`w-6 h-0.5 bg-neutral-300 transition-all duration-300 ${
+              menuOpen ? "-rotate-45 -translate-y-1.5" : "translate-y-1"
+            }`}
+          />
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <ul className="md:hidden flex flex-col space-y-3 px-6 pb-6 bg-card/95 backdrop-blur-md border-t border-accent-700 shadow-[0_0_20px_var(--color-card)] animate-fadeIn">
-          {links.map((link) => (
-            <li key={link.name}>
-              <a
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="block text-neutral-200 hover:text-accent-400 transition-colors"
-              >
-                {link.name}
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
+      {/* Mobile Dropdown */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="md:hidden px-6 pb-4 bg-surface/90 backdrop-blur-xl border-t border-neutral-800/50"
+          >
+            <div className="flex flex-col space-y-2">
+              {links.map((link) => (
+                <button
+                  key={link.id}
+                  onClick={() => scrollTo(link.id)}
+                  className={`px-4 py-3 rounded-lg text-left transition-all duration-200 focus:outline-none focus:ring-0 ${
+                    activeSection === link.id
+                      ? "bg-primary-500/20 text-primary-400"
+                      : "text-neutral-300 hover:text-white hover:bg-neutral-800/50"
+                  }`}
+                >
+                  {link.name}
+                </button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Smooth Progress Bar */}
+      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-neutral-800/40 overflow-hidden">
+        <motion.div
+          className="h-full bg-linear-to-r from-primary-500 to-secondary-500"
+          animate={{
+            width: `${
+              ((links.findIndex((l) => l.id === activeSection) + 1) /
+                links.length) *
+              100
+            }%`,
+          }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+        />
+      </div>
     </nav>
   );
 };
