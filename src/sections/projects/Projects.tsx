@@ -10,7 +10,7 @@ const Projects: React.FC = () => {
   return (
     <section
       id="projects"
-      className="relative min-h-screen flex items-center justify-center text-neutral-100 py-28 px-6 md:px-12 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center md:justify-start pt-24 text-neutral-100 px-6 md:px-12 overflow-hidden"
     >
       {/* Backgrounds */}
       <ProjectsBackground />
