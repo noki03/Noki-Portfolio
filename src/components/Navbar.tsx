@@ -1,5 +1,9 @@
+// src/components/Navbar.tsx
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import HamburgerButton from "./comps/HamburgerButton";
+
+const NAVBAR_OFFSET = 80; // adjust if navbar height changes
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,15 +25,35 @@ const Navbar: React.FC = () => {
       if (current) setActiveSection(current);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Smooth scroll helper that closes menu and then scrolls after layout settles
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (!el) return;
-    window.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
+
+    // Close menu first (if open)
+    const wasMenuOpen = menuOpen;
     setMenuOpen(false);
+
+    // Compute exact target top relative to document
+    const rect = el.getBoundingClientRect();
+    const targetTop = rect.top + window.scrollY - NAVBAR_OFFSET;
+
+    // If menu was open and animating, wait one frame so layout settles and overlay is gone
+    if (wasMenuOpen) {
+      // requestAnimationFrame is a light-weight way to wait until next paint
+      requestAnimationFrame(() => {
+        // small extra delay for smoother results on some mobile browsers
+        setTimeout(() => {
+          window.scrollTo({ top: Math.max(0, targetTop), behavior: "smooth" });
+        }, 40); // 30–80ms is usually enough; 40 chosen as sweet spot
+      });
+    } else {
+      window.scrollTo({ top: Math.max(0, targetTop), behavior: "smooth" });
+    }
   };
 
   const links = [
@@ -51,9 +75,7 @@ const Navbar: React.FC = () => {
         {/* Logo */}
         <button
           onClick={() => scrollTo("hero")}
-          className="flex items-center space-x-3 group focus:outline-none focus:ring-0"
-          // Optional accessible glow:
-          // className="flex items-center space-x-3 group focus:outline-none focus:ring-2 focus:ring-primary-500/40 focus:ring-offset-0"
+          className="flex items-center space-x-3 group focus:outline-none focus:ring-2 focus:ring-primary-500/40 focus:ring-offset-0"
         >
           <div className="w-9 h-9 bg-linear-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center font-bold text-white shadow-md group-hover:scale-110 transition-transform">
             N
@@ -69,12 +91,6 @@ const Navbar: React.FC = () => {
             <button
               key={link.id}
               onClick={() => scrollTo(link.id)}
-              // className={`px-4 py-2 rounded-lg transition-all duration-200 focus:outline-none focus:ring-0 ${
-              //   activeSection === link.id
-              //     ? "text-primary-400 bg-primary-500/10"
-              //     : "text-neutral-300 hover:text-white hover:bg-neutral-800/50"
-              // }`}
-              // Optional accessible glow:
               className={`px-4 py-2 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/40 focus:ring-offset-0 ${
                 activeSection === link.id
                   ? "text-primary-400 bg-primary-500/10"
@@ -87,26 +103,12 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          className="md:hidden w-10 h-10 flex flex-col justify-center items-center relative focus:outline-none focus:ring-0"
-          onClick={() => setMenuOpen((p) => !p)}
-        >
-          <span
-            className={`w-6 h-0.5 bg-neutral-300 transition-all duration-300 ${
-              menuOpen ? "rotate-45 translate-y-1.5" : "-translate-y-1"
-            }`}
+        <div className="flex md:hidden">
+          <HamburgerButton
+            isOpen={menuOpen}
+            onClick={() => setMenuOpen(!menuOpen)}
           />
-          <span
-            className={`w-6 h-0.5 bg-neutral-300 transition-all duration-300 ${
-              menuOpen ? "opacity-0" : "opacity-100"
-            }`}
-          />
-          <span
-            className={`w-6 h-0.5 bg-neutral-300 transition-all duration-300 ${
-              menuOpen ? "-rotate-45 -translate-y-1.5" : "translate-y-1"
-            }`}
-          />
-        </button>
+        </div>
       </div>
 
       {/* Mobile Dropdown */}
@@ -116,7 +118,7 @@ const Navbar: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            transition={{ duration: 0.28, ease: "easeInOut" }}
             className="md:hidden px-6 pb-4 bg-surface/90 backdrop-blur-xl border-t border-neutral-800/50"
           >
             <div className="flex flex-col space-y-2">
