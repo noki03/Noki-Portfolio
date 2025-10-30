@@ -1,23 +1,20 @@
 import React from "react";
-import Prism from "../../components/bgs/Prism";
+// Import motion from framer-motion
+import DynamicPrism from "../../components/util/DynamicPrism";
 
 const HeroBackgrounds: React.FC = () => (
   <>
     {/* Prism Overlay */}
-    <div className="absolute inset-0 z-10 pointer-events-none">
-      <Prism
-        animationType="rotate"
-        timeScale={0.5}
-        height={3}
-        baseWidth={5.5}
-        scale={3.2}
-        hueShift={1.06}
-        colorFrequency={2.5}
-        noise={0}
-        glow={0.3}
-      />
-    </div>
-
+    <DynamicPrism
+      animationType="rotate"
+      timeScale={0.4}
+      height={2.7}
+      baseWidth={4.5}
+      scale={3.5}
+      colorFrequency={0.7}
+      noise={0}
+      glow={0.25}
+    />
     {/* Radial Dark Overlay */}
     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(10,19,16,0.8)_0%,rgba(10,19,16,0.4)_40%,transparent_100%)] pointer-events-none" />
 
