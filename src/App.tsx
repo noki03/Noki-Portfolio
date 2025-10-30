@@ -1,37 +1,27 @@
 // src/App.tsx
 import React from "react";
 import Navbar from "./components/Navbar";
-import Hero from "./sections/Hero";
-import About from "./sections/About";
-import Projects from "./sections/Projects";
-import Contact from "./sections/Contact";
+import Hero from "./sections/hero/Hero";
+import About from "./sections/about/About";
+import Projects from "./sections/projects/Projects";
 import Footer from "./components/Footer";
+import Contact from "./sections/contact/Contact";
+import CursorFlashlight from "./components/motion/CursorFlashlight";
 
 const App: React.FC = () => {
   return (
-    // Set the main app background here (e.g., bg-bg or bg-neutral-950 for pure black)
-    <div className="min-h-screen flex flex-col  text-neutral-100 font-sans">
+    <div className="min-h-screen flex flex-col text-neutral-100 font-sans bg-transparent">
+      <CursorFlashlight />
       {/* Navbar */}
       <Navbar />
 
       {/* Main Content */}
-      <main className="grow ">
-        <section id="hero">
-          <Hero />
-        </section>
 
-        {/* 👇 REMOVE bg-surface/bg-bg from sections */}
-        <section id="about" className="border-t border-neutral-800">
-          <About />
-        </section>
-
-        <section id="projects" className="border-t border-neutral-800">
-          <Projects />
-        </section>
-
-        <section id="contact" className="border-t border-neutral-800">
-          <Contact />
-        </section>
+      <main className="relative flex flex-col">
+        <Hero key="hero" />
+        <About key="about" />
+        <Projects key="projects" />
+        <Contact key="contact" />
       </main>
       <div className="hidden">
         bg-primary-100 bg-primary-200 bg-primary-300 bg-primary-400
