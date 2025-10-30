@@ -50,12 +50,6 @@ const DynamicPrism: React.FC<DynamicPrismProps> = (props) => {
     const hueShiftRadians = (((hue - baseHue + 360) % 360) / 180) * Math.PI;
 
     setHueShift(hueShiftRadians);
-
-    console.log(
-      `Primary: ${primary} | Hue: ${hue.toFixed(
-        1
-      )}° | hueShift: ${hueShiftRadians.toFixed(3)} rad`
-    );
   }, []);
 
   return (
