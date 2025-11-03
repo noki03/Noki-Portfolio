@@ -1,49 +1,39 @@
 // src/sections/experience/ExperienceList.tsx
-import { motion } from "framer-motion";
+import FadeInSection from "../../components/motion/FadeInSection";
 import ExperienceCard from "./ExperienceCard";
 
 const experiences = [
   {
     role: "Web Developer",
     company: "DecoArts Marketing Inc.",
-    period: "2023 – Present",
+    period: "Jan 2024 – Present",
     description:
-      "Building responsive web applications using React, TypeScript, and TailwindCSS. Focused on delivering modern UI/UX with smooth animations and performance optimization.",
+      "Developing and enhancing enterprise web systems, including CMS, Promotion, and Physical Count platforms. Focused on improving workflows, UI/UX, and backend logic using React, Laravel, and MySQL/Oracle. Implemented automation for reporting, SSO authentication with Keycloak, and offline-first functionality with IndexedDB to optimize performance and reliability.",
   },
   {
     role: "Web Developer Intern",
-    company: "University of the Philippines - CIC",
-    period: "2022 – 2023",
+    company: "University of Southeastern Philippines - CIC Department",
+    period: "Jul 2022 – Jan 2023",
     description:
-      "Created interactive, aesthetic web designs and components while learning motion design and accessibility best practices.",
+      "Served as part of the core development team for a Web-Based Pre-Enrollment System. Designed and developed student interfaces for course browsing, selection, and enrollment, as well as data management tools for advisors and administrators. Contributed to testing, debugging, and feature enhancements to ensure a smooth and efficient enrollment experience.",
   },
 ];
 
-// parent container animation
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15, // stagger child cards nicely
-      delayChildren: 0.2,
-    },
-  },
-};
-
 const ExperienceList: React.FC = () => {
   return (
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: false, amount: 0.15 }}
-      className="space-y-8"
-    >
+    <div className="space-y-8">
       {experiences.map((exp, i) => (
-        <ExperienceCard key={i} {...exp} />
+        <FadeInSection
+          key={i}
+          delay={i * 0.3}
+          retrigger
+          direction="up"
+          className="w-full"
+        >
+          <ExperienceCard {...exp} />
+        </FadeInSection>
       ))}
-    </motion.div>
+    </div>
   );
 };
 
