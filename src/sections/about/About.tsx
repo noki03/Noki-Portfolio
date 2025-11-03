@@ -15,7 +15,7 @@ const About: React.FC = () => {
 
       <div className="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center z-10">
         <div className="space-y-6">
-          <FadeInSection delay={0.1}>
+          <FadeInSection retrigger direction="down" delay={0.1}>
             <AboutBadge />
           </FadeInSection>
 
