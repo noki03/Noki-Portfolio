@@ -1,10 +1,10 @@
-// src/sections/experience/Experience.tsx
 import React from "react";
 import ExperienceBackground from "./ExperienceBackground";
 import ExperienceHeader from "./ExperienceHeader";
 import ExperienceList from "./ExperienceList";
 import FloatingDots from "../../components/util/FloatingDots";
 import FadeInSection from "../../components/motion/FadeInSection";
+import ExperienceBadge from "./ExperienceBadge";
 
 const Experience: React.FC = () => {
   return (
@@ -17,9 +17,16 @@ const Experience: React.FC = () => {
 
       {/* Content */}
       <div className="relative max-w-5xl mx-auto w-full z-10 space-y-12">
-        <FadeInSection retrigger delay={0.2}>
-          <ExperienceHeader />
-        </FadeInSection>
+        <div className="text-center">
+          <FadeInSection delay={0.2}>
+            <ExperienceBadge />
+          </FadeInSection>
+
+          <FadeInSection delay={0.25}>
+            <ExperienceHeader />
+          </FadeInSection>
+        </div>
+
         <ExperienceList />
       </div>
 
