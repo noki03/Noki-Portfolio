@@ -6,6 +6,7 @@ const ContactBackground: React.FC = () => {
     <>
       {/* Gradient backdrop */}
       <div className="absolute inset-0 bg-linear-to-br from-card via-bg to-bg transition-all duration-1000" />
+
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(10,19,16,0.8)_0%,rgba(10,19,16,0.4)_40%,transparent_100%)] pointer-events-none" />
 
       {/* Soft glowing orbs */}
