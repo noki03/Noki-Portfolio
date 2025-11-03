@@ -14,7 +14,13 @@ const Navbar: React.FC = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
 
-      const sections = ["hero", "about", "projects", "contact"];
+      const sections = [
+        "hero",
+        "about",
+        /* "projects", */
+        "experience",
+        "contact",
+      ];
       const current = sections.find((id) => {
         const el = document.getElementById(id);
         if (!el) return false;
@@ -59,7 +65,8 @@ const Navbar: React.FC = () => {
   const links = [
     { name: "Home", id: "hero" },
     { name: "About", id: "about" },
-    { name: "Projects", id: "projects" },
+    // { name: "Projects", id: "projects" },
+    { name: "Experience", id: "experience" },
     { name: "Contact", id: "contact" },
   ];
 

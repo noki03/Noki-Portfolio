@@ -3,10 +3,11 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./sections/hero/Hero";
 import About from "./sections/about/About";
-import Projects from "./sections/projects/Projects";
+// import Projects from "./sections/projects/Projects";
 import Footer from "./components/Footer";
 import Contact from "./sections/contact/Contact";
 import CursorFlashlight from "./components/motion/CursorFlashlight";
+import Experience from "./sections/experience/Experience";
 
 const App: React.FC = () => {
   return (
@@ -20,7 +21,8 @@ const App: React.FC = () => {
       <main className="relative flex flex-col">
         <Hero key="hero" />
         <About key="about" />
-        <Projects key="projects" />
+        <Experience key="experience" />
+        {/* <Projects key="projects" /> */}
         <Contact key="contact" />
       </main>
       <div className="hidden">
