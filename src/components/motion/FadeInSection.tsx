@@ -1,6 +1,6 @@
 // src/components/motion/FadeInSection.tsx
 import React from "react";
-import { motion, useAnimation } from "framer-motion";
+import { motion, useAnimation, type Variants } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 interface FadeInSectionProps {
@@ -8,8 +8,14 @@ interface FadeInSectionProps {
   delay?: number;
   duration?: number;
   className?: string;
-  retrigger?: boolean; // 🆕 allows controlling if animation repeats when leaving/entering view
-  direction?: "up" | "down" | "left" | "right"; // 🆕 optional motion direction
+  retrigger?: boolean;
+  direction?: "up" | "down" | "left" | "right" | "zoom" | "scale";
+  distance?: number;
+  stiffness?: number;
+  damping?: number;
+  once?: boolean;
+  threshold?: number;
+  hoverScale?: boolean; // ✅ new optional prop
 }
 
 const FadeInSection: React.FC<FadeInSectionProps> = ({
@@ -19,11 +25,17 @@ const FadeInSection: React.FC<FadeInSectionProps> = ({
   className = "",
   retrigger = false,
   direction = "up",
+  distance = 30,
+  stiffness = 100,
+  damping = 10,
+  once = false,
+  threshold = 0.15,
+  hoverScale = false, // ✅ default false
 }) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({
-    threshold: 0.15,
-    triggerOnce: !retrigger, // 🧠 Core logic: retrigger = false → trigger once
+    threshold,
+    triggerOnce: !retrigger && once,
   });
 
   React.useEffect(() => {
@@ -34,18 +46,62 @@ const FadeInSection: React.FC<FadeInSectionProps> = ({
     }
   }, [controls, inView, retrigger]);
 
-  // Dynamic direction offset
-  const offsetMap = {
-    up: { y: 30, x: 0 },
-    down: { y: -30, x: 0 },
-    left: { x: 30, y: 0 },
-    right: { x: -30, y: 0 },
+  // animation variants based on direction
+  const getDirectionalVariants = (): Variants => {
+    const tweenTransition = {
+      duration,
+      delay,
+      ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
+    };
+
+    const springTransition = {
+      type: "spring" as const,
+      stiffness,
+      damping,
+      delay,
+    };
+
+    const baseHidden = { opacity: 0 };
+    const baseVisible = { opacity: 1 };
+
+    const directionalVariants: Record<
+      NonNullable<FadeInSectionProps["direction"]>,
+      Variants
+    > = {
+      up: {
+        hidden: { ...baseHidden, y: distance },
+        visible: { ...baseVisible, y: 0, transition: tweenTransition },
+      },
+      down: {
+        hidden: { ...baseHidden, y: -distance },
+        visible: { ...baseVisible, y: 0, transition: tweenTransition },
+      },
+      left: {
+        hidden: { ...baseHidden, x: distance },
+        visible: { ...baseVisible, x: 0, transition: tweenTransition },
+      },
+      right: {
+        hidden: { ...baseHidden, x: -distance },
+        visible: { ...baseVisible, x: 0, transition: tweenTransition },
+      },
+      zoom: {
+        hidden: { ...baseHidden, scale: 0.8 },
+        visible: { ...baseVisible, scale: 1, transition: springTransition },
+      },
+      scale: {
+        hidden: { ...baseHidden, scale: 0 },
+        visible: {
+          ...baseVisible,
+          scale: 1,
+          transition: { ...springTransition, stiffness: stiffness * 1.2 },
+        },
+      },
+    };
+
+    return directionalVariants[direction] ?? directionalVariants.up;
   };
 
-  const variants = {
-    hidden: { opacity: 0, ...offsetMap[direction] },
-    visible: { opacity: 1, x: 0, y: 0 },
-  };
+  const variants = getDirectionalVariants();
 
   return (
     <motion.div
@@ -54,7 +110,14 @@ const FadeInSection: React.FC<FadeInSectionProps> = ({
       initial="hidden"
       animate={controls}
       variants={variants}
-      transition={{ delay, duration, ease: "easeOut" }}
+      whileHover={
+        hoverScale
+          ? {
+              scale: 1.02,
+              transition: { duration: 0.18 },
+            }
+          : undefined
+      }
     >
       {children}
     </motion.div>
