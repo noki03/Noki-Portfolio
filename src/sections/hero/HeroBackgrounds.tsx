@@ -1,6 +1,6 @@
 import React from "react";
 // Import motion from framer-motion
-import DynamicPrism from "../../components/util/DynamicPrism";
+// import DynamicPrism from "../../components/util/DynamicPrism";
 
 const HeroBackgrounds: React.FC = () => (
   <>
