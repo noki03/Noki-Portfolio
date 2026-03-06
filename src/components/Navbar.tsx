@@ -84,9 +84,15 @@ const Navbar: React.FC = () => {
           onClick={() => scrollTo("hero")}
           className="flex items-center space-x-3 group focus:outline-none focus:ring-2 focus:ring-primary-500/40 focus:ring-offset-0"
         >
-          <div className="w-9 h-9 bg-linear-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center font-bold text-white shadow-md group-hover:scale-110 transition-transform">
-            N
+          {/* Logo Container */}
+          <div className="w-10 h-10 flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+            <img
+              src="/Noki01-5.png"
+              alt="Noki.Dev Logo"
+              className="w-full h-full object-contain"
+            />
           </div>
+
           <h1 className="text-lg font-semibold bg-linear-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent tracking-tight">
             Noki.Dev
           </h1>
