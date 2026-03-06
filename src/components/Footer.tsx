@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
         {/* Social Icons */}
         <div className="flex items-center gap-4">
           <a
-            href="#"
+            href="https://github.com/noki03"
             aria-label="GitHub"
             className="hover:text-primary-600 transition-colors duration-200"
           >
@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
             </svg>
           </a>
           <a
-            href="#"
+            href="https://linkedin.com/in/neuqian-rhys-salvador-097455282"
             aria-label="LinkedIn"
             className="hover:text-primary-600 transition-colors duration-200"
           >
