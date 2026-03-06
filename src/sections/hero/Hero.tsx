@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative flex items-center justify-center min-h-screen px-6 overflow-hidden bg-transparent"
+      className="relative flex items-center justify-center min-h-screen  px-6 pt-10 overflow-hidden bg-transparent"
     >
       <HeroBackgrounds />
 
