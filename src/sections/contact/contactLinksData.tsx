@@ -3,7 +3,7 @@
 export const contactLinks = [
   {
     label: "Email Me",
-    href: "mailto:yourname@example.com",
+    href: "neuqian2000@gmail.com",
     filled: true,
     icon: (
       <svg
@@ -23,7 +23,7 @@ export const contactLinks = [
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/your-linkedin",
+    href: "linkedin.com/in/neuqian-rhys-salvador-097455282",
     filled: false,
     icon: (
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -33,7 +33,7 @@ export const contactLinks = [
   },
   {
     label: "GitHub",
-    href: "https://github.com/your-github",
+    href: "https://github.com/noki03",
     filled: false,
     icon: (
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
