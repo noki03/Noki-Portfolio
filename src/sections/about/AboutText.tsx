@@ -23,7 +23,7 @@ const AboutText: React.FC = () => {
           in developing and improving in-house corporate systems. I specialize
           in{" "}
           <span className="text-primary-300 font-semibold">
-            PHP (Laravel), React, and TypeScript
+            PHP (Laravel), React, and Javascript/TypeScript
           </span>
           , crafting efficient solutions that enhance workflows, automate
           processes, and improve user experience.

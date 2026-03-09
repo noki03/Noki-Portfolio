@@ -18,11 +18,11 @@ const Experience: React.FC = () => {
       {/* Content */}
       <div className="relative max-w-5xl mx-auto w-full z-10 space-y-12">
         <div className="text-center">
-          <FadeInSection delay={0.2}>
+          <FadeInSection retrigger direction="down" delay={0.1}>
             <ExperienceBadge />
           </FadeInSection>
 
-          <FadeInSection delay={0.25}>
+          <FadeInSection retrigger delay={0.25}>
             <ExperienceHeader />
           </FadeInSection>
         </div>
