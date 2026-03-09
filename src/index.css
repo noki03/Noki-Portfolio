@@ -1,6 +1,8 @@
 @import "tailwindcss";
-
-/* Dark-modern theme for NOKI.DEV */
+@import "./theme/theme-dark.css";
+/* @import "./theme/theme-blue.css"; */
+/* @import "./theme/theme-green.css"; */
+/* @import "./theme/theme-neo-midnight.css"; */
 
 @theme {
   /* Font System */
@@ -8,11 +10,6 @@
   --font-sans--font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
-/* @import "./theme/theme-blue.css"; */
-@import "./theme/theme-dark.css";
-/* @import "./theme/theme-green.css"; */
-/* @import "./theme/theme-neo-midnight.css"; */
-/*  */
 /* Global Styles */
 html {
   scroll-behavior: smooth;
@@ -55,7 +52,9 @@ section {
   content-visibility: auto;
   contain-intrinsic-size: 1000px;
   contain: layout paint style; /* Optional: further isolates each section for better performance */
-  transition: background-color 0.5s ease, backdrop-filter 0.5s ease;
+  transition:
+    background-color 0.5s ease,
+    backdrop-filter 0.5s ease;
 }
 
 @keyframes float {
@@ -70,4 +69,37 @@ section {
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+/* =========================================
+   MAGIC UI MARQUEE - BULLETPROOF CSS
+   ========================================= */
+.animate-marquee {
+  animation: marquee var(--duration, 40s) linear infinite;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration, 40s) linear infinite;
+}
+
+.group:hover .pause-on-hover {
+  animation-play-state: paused !important;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap, 1rem)));
+  }
+}
+
+@keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-100% - var(--gap, 1rem)));
+  }
 }
