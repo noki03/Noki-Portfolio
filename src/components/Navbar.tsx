@@ -82,7 +82,7 @@ const Navbar: React.FC = () => {
         {/* Logo */}
         <button
           onClick={() => scrollTo("hero")}
-          className="flex items-center space-x-3 group focus:outline-none focus:ring-2 focus:ring-primary-500/40 focus:ring-offset-0"
+          className="flex items-center space-x-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500/40 focus-visible:ring-offset-0"
         >
           {/* Logo Container */}
           <div className="w-10 h-10 flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
@@ -104,7 +104,7 @@ const Navbar: React.FC = () => {
             <button
               key={link.id}
               onClick={() => scrollTo(link.id)}
-              className={`px-4 py-2 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/40 focus:ring-offset-0 ${
+              className={`px-4 py-2 rounded-lg transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500/40 focus-visible:ring-offset-0 ${
                 activeSection === link.id
                   ? "text-primary-400 bg-primary-500/10"
                   : "text-neutral-300 hover:text-white hover:bg-neutral-800/50"
