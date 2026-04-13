@@ -19,4 +19,4 @@
 
 ## Technical Debt & Known Bugs
 
-- None yet.
+- [ ] Vite Build Failure: Rollup chunking error on feat/initial-audit-and-perf
