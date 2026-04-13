@@ -2,7 +2,7 @@ import React from "react";
 
 const HeroButtons: React.FC = () => (
   <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
-    <a
+    {/*  <a
       href="#projects"
       className="group relative px-8 py-4 rounded-xl bg-linear-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-primary-400 transition-all duration-300 text-white font-semibold shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40 hover:scale-105 flex items-center justify-center gap-3 border border-primary-400/30"
     >
@@ -20,7 +20,7 @@ const HeroButtons: React.FC = () => (
           d="M9 5l7 7-7 7"
         />
       </svg>
-    </a>
+    </a> */}
 
     <a
       href="#contact"
