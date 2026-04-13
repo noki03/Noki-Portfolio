@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 interface FloatingDotsProps {
   count?: number;
@@ -14,6 +14,9 @@ const FloatingDots: React.FC<FloatingDotsProps> = ({
   areaWidth = 1920,
   verticalMarginRatio = 0.05,
 }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: false, margin: "-100px" });
+
   const topMargin = areaHeight * verticalMarginRatio;
   const bottomLimit = areaHeight - topMargin;
 
@@ -45,22 +48,30 @@ const FloatingDots: React.FC<FloatingDotsProps> = ({
           height: `${size}px`,
           opacity,
         }}
-        animate={{
-          y: [0, -floatDistance, 0],
-          x: [0, Math.random() * 10 - 5, 0],
-        }}
-        transition={{
-          duration,
-          delay,
-          repeat: Infinity,
-          repeatType: "mirror",
-          ease: "easeInOut",
-        }}
+        animate={
+          isInView
+            ? {
+                y: [0, -floatDistance, 0],
+                x: [0, Math.random() * 10 - 5, 0],
+              }
+            : {}
+        }
+        transition={
+          isInView
+            ? {
+                duration,
+                delay,
+                repeat: Infinity,
+                repeatType: "mirror",
+                ease: "easeInOut",
+              }
+            : {}
+        }
       />
     );
   });
 
-  return <>{dots}</>;
+  return <div ref={ref}>{dots}</div>;
 };
 
 export default FloatingDots;
